@@ -28,3 +28,13 @@ treemap.c:76:17: error: expected expression before ‘}’ token
       |                 ^
 Compilation failed
 820dfce
+Fri 10 May 2024 09:44:36 PM UTC: 
+ treemap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c:2:10: fatal error: bool.h: No such file or directory
+    2 | #include <bool.h>
+      |          ^~~~~~~~
+compilation terminated.
+Compilation failed
+e75b0a1

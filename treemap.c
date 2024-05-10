@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <bool.h>
 #include <stdlib.h>
 #include <string.h>
 #include "treemap.h"
@@ -50,7 +51,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
 {
     TreeNode * Datos = createTreeNode(key, value);
     Datos->pair->key = key;
-    Datos->pair->value = value
+    Datos->pair->value = value;
     Datos->left = NULL;
     Datos->right = NULL; 
 
