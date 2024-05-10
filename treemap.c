@@ -73,7 +73,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
                 }
                 else
                 {
-                    Temp = Temp->left<
+                    Temp = Temp->left;
                 }
             }
             else if (key > Temp->pair->key)
