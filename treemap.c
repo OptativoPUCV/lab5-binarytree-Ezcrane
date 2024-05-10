@@ -62,7 +62,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
     else
     {
         TreeNode * Temp = tree->root;
-        while(True)
+        while(true)
         {
             if(key < Temp->pair->key)
             {
