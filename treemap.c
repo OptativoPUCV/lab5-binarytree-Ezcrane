@@ -49,49 +49,45 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2))
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) 
 {
-    TreeNode * Datos = createTreeNode(key, value);
-    if(tree->root == NULL)
+    if (tree == NULL || key == NULL || value == NULL) return;
+    if (tree->root == NULL)	
     {
-        tree->root = Datos;
+        tree->root = createTreeNode(key, value);
     }
     else
     {
-        TreeNode * Temp = tree->root;
-        while(true)
-        {
-            if(key < Temp->pair->key)
+        TreeNode * aux = tree->root;
+        while (aux != NULL)
             {
-                if(Temp->left == NULL)
+                if (is_equal(tree, key, aux->pair->key) == 1) return;
+                if (tree->lower_than(key, aux->pair->key) == 1)
                 {
-                    Temp->left = Datos;
-                    break;
+                    if (aux->left == NULL)
+                    {
+                        aux->left = createTreeNode(key, value);
+                        aux->left->parent = aux;
+                        return;
+                    }
+                    else
+                    {
+                        aux = aux->left;
+                    }
                 }
                 else
                 {
-                    Temp = Temp->left;
+                    if (aux->right == NULL)
+                    {
+                        aux->right = createTreeNode(key, value);
+                        aux->left->parent = aux;
+                        return;
+                    }
+                    else
+                    {
+                        aux = aux->right;
+                    }
                 }
             }
-            else if (key > Temp->pair->key)
-            {
-                if(Temp->right == NULL)
-                {
-                    Temp->right = Datos;
-                    break;
-                }
-                else
-                {
-                    Temp = Temp->right;
-                }
-            }
-            else
-            {
-                Temp->pair->value = value;
-                free(Temp);
-                break;
-            }
-        }
     }
-
 }
 
 TreeNode * minimum(TreeNode * x){
