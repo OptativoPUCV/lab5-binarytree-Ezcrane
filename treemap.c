@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <bool.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include "treemap.h"
