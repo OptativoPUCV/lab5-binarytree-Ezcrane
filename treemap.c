@@ -106,7 +106,7 @@ TreeNode * minimum(TreeNode * x)
     if(aux == NULL) return NULL;
     if(aux->left != NULL)
     {
-        if(lower_than_string(aux->left->pair->key, aux->pair->key) == 1)
+        if(lower_than_string(aux->pair->key, aux->left->pair->key) == 1)
         {
             aux = aux->left;
         }
