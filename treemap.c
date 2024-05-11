@@ -125,6 +125,9 @@ void removeNode(TreeMap * tree, TreeNode* node)
             }
         }
         free(node->pair->key);
+        free(node->pair->value);
+        free(node->pair);
+        free(node);
     }
     else if (node->left == NULL || node->right == NULL)
     {
@@ -154,6 +157,9 @@ void removeNode(TreeMap * tree, TreeNode* node)
         {
             tree->root = hijo;  
         }
+        free(node->pair->key);
+        free(node->pair->value);
+        free(node->pair);
         free(node);
     }
     else if(node->left != NULL && node->right != NULL)
