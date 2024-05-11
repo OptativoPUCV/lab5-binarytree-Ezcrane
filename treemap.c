@@ -160,7 +160,7 @@ void removeNode(TreeMap * tree, TreeNode* node)
     {
         TreeNode * aux = minimum(node->right);
         void * key = aux->pair->key;
-        void * value = aux->pair->value
+        void * value = aux->pair->value;
         removeNode(tree, aux);
         node->pair->key = key;
         node->pair->value = value;

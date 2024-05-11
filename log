@@ -189,3 +189,9 @@ treemap.c:164:9: error: expected ‘,’ or ‘;’ before ‘removeNode’
       |         ^~~~~~~~~~
 Compilation failed
 6a6217e
+Sat 11 May 2024 12:58:23 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  17|4
+total_score: 35/70
+457afd2
