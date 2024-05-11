@@ -152,7 +152,7 @@ void removeNode(TreeMap * tree, TreeNode* node)
         {
             tree->root = hijo;  
         }
-        free(node)
+        free(node);
     }
     else
     {
