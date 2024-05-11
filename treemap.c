@@ -20,6 +20,13 @@ struct TreeMap {
     int (*lower_than) (void* key1, void* key2);
 };
 
+int lower_than_string(void* key1, void* key2){
+    char* k1=(char*) key1;
+    char* k2=(char*) key2;
+    if(strcmp(k1,k2)<0) return 1;
+    return 0;
+}
+
 int is_equal(TreeMap* tree, void* key1, void* key2){
     if(tree->lower_than(key1,key2)==0 &&  
         tree->lower_than(key2,key1)==0) return 1;
@@ -93,8 +100,18 @@ void insertTreeMap(TreeMap * tree, void* key, void * value)
     }
 }
 
-TreeNode * minimum(TreeNode * x){
-
+TreeNode * minimum(TreeNode * x)
+{
+    TreeNode * aux = x;
+    if(aux == NULL) return NULL;
+    if(lower_than_string(aux->left->pair->key, aux->pair->key))
+    {
+        aux = aux->left;
+    }
+    else
+    {
+        return aux;
+    }
     return NULL;
 }
 
