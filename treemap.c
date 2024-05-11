@@ -224,7 +224,7 @@ Pair * upperBound(TreeMap * tree, void* key)
                 aux = aux->right;
                 tree->current = aux;
             }
-            else return aux->pair;
+            else if (is_equal(tree, key, aux->pair->key) == 1) return aux->pair;
         }
     return UB->pair;
 }
