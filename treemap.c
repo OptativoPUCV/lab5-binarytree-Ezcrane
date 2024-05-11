@@ -104,14 +104,18 @@ TreeNode * minimum(TreeNode * x)
 {
     TreeNode * aux = x;
     if(aux == NULL) return NULL;
-    if(lower_than_string(aux->left->pair->key, aux->pair->key))
+    if(aux->left != NULL)
     {
-        aux = aux->left;
+        if(lower_than_string(aux->left->pair->key, aux->pair->key) == 1)
+        {
+            aux = aux->left;
+        }
+        else
+        {
+            return aux;
+        }
     }
-    else
-    {
-        return aux;
-    }
+    else return aux;
     return NULL;
 }
 
