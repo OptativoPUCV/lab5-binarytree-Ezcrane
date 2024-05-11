@@ -124,8 +124,6 @@ void removeNode(TreeMap * tree, TreeNode* node)
                 node->parent->right = NULL;
             }
         }
-        free(node->pair->key);
-        free(node->pair->value);
         free(node);
     }
     else if (node->left == NULL || node->right == NULL)
@@ -151,8 +149,6 @@ void removeNode(TreeMap * tree, TreeNode* node)
                 hijo->parent = node->parent;
                 node->parent->right = hijo;
             }
-            free(node->pair->key);
-            free(node->pair->value);
             free(node);
         }
         else
