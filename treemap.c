@@ -126,34 +126,56 @@ void removeNode(TreeMap * tree, TreeNode* node)
         }
         free(node->pair->key);
     }
-    else
+    else if (node->left == NULL || node->right == NULL)
     {
-        if (node->left == NULL || node->right == NULL)
+        if (node->left != NULL)
         {
-            if (node->left != NULL)
+            if (node->parent == NULL)
+            {
+                tree->root = node->left;
+                tree->root->parent = NULL;
+            }
+            else
             {
                 if (node->parent->left == node)
                 {
                     node->parent->left = node->left;
                 }
-            }
-            else
-            {
-                if (node->parent->right == node)
+                else
                 {
-                    node->parent->right = node->right;
+                    node->parent->right = node->left;
                 }
+                node->left->parent = node->parent;
             }
-            node->left->parent = node->parent;
-            free(node->pair->key);
         }
         else
         {
-            TreeNode * min = minimum(node->right);
-            node->pair->key = min->pair->key;
-            node->pair->value = min->pair->value;
-            removeNode(tree, min);
+            if (node->parent == NULL)
+            {
+                tree->root = node->right;
+                tree->root->parent = NULL;
+            }
+            else
+            {
+                if (node->parent->left == node)
+                {
+                    node->parent->left = node->right;
+                }
+                else
+                {
+                    node->parent->right = node->right;
+                }
+                node->right->parent = node->parent;
+            }
         }
+        free(node->pair->key);
+    }
+    else
+    {
+        TreeNode * aux = minimum(node->right);
+        node->pair->key = aux->pair->key;
+        node->pair->value = aux->pair->value;
+        removeNode(tree, aux);
     }
 }
 
