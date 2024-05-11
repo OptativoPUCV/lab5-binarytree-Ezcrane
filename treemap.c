@@ -141,10 +141,12 @@ void removeNode(TreeMap * tree, TreeNode* node)
         {
             if(node->parent->left == node)
             {
+                hijo->parent = node->parent;
                 node->parent->left = hijo;
             }
             else
             {
+                hijo->parent = node->parent;
                 node->parent->right = hijo;
             }
         }
@@ -205,8 +207,9 @@ Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
 }
 
-Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+Pair * firstTreeMap(TreeMap * tree) 
+{
+    return tree->root->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
