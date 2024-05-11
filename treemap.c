@@ -222,6 +222,7 @@ Pair * nextTreeMap(TreeMap * tree)
     if(aux->right != NULL)
     {
         TreeNode * next = minimum(aux->right);
+        if(next == NULL) return NULL;
         tree->current = next;
         return next->pair;
     }
